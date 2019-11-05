@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FF Timer</title>
+</head>
+<body>
+    <div>
+        <label for="session-duration">Enter Session Duration</label>
+        <input id="session-duration" type="number">
+    </div>
+    <div>
+        <label for="break-one-duration">First Break Duration</label>
+        <input id="break-one-duration" type="number">
+    </div>
+    <div>
+        <label for="break-two-duration">Second Break Duration</label>
+        <input id="break-two-duration" type="number">
+    </div>
+
+        
+        <input type="submit" value="submit" onclick="myTimer()">
+
+    <p id="session-one"></p>
+    <p id="break-one"></p>
+    <p id="timer"></p>
+
+    <script src="main.js"></script>
+</body>
+</html>
