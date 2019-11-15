@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap CSS  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>FF Timer</title>
 </head>
-<body>
+<body class="container">
+    <div>
+        <h1 class="display-3 pb-5">Flash Feedback Event Timer</h1>
+    </div>
     <div>
         <label for="session-duration">Enter Session Duration</label>
         <input id="session-duration" type="number">
@@ -16,17 +21,123 @@
         <input id="break-one-duration" type="number">
     </div>
     <div>
-        <label for="break-two-duration">Second Break Duration</label>
-        <input id="break-two-duration" type="number">
+        <label for="flex-duration">Flex Duration</label>
+        <input id="flex-duration" type="number">
     </div>
 
         
-        <input type="submit" value="submit" onclick="myTimer()">
+        <input type="submit" value="Start Timer" onclick="myTimer()">
+        <button value="Refresh Page" onClick="window.location.reload();">Clear Timer</button>
+    
+        <!-- session one  -->
+    <div id="first-session" class="pt-4">
+        <h2>First Session</h2>
+        <div class="d-inline-blcok">
+            <p class="d-inline-flex font-weight-bold">Time till session end:</p>
+            <p id="session-one" class="d-inline-flex"></p>
+        </div>
+        <div class="d-inline-block">
+            <p class="d-inline-flex font-weight-bold">End Time:</p>
+            <p id="session-one-end" class="d-inline-flex"></p>
+        </div>
+    </div>
 
-    <p id="session-one"></p>
-    <p id="break-one"></p>
-    <p id="timer"></p>
+    <!-- break one  -->
+    <div class="pt-4">
+            <h2>Break/Flex</h2>
+            <div class="d-inline-blcok">
+                <p class="d-inline-flex font-weight-bold">Time till break end:</p>
+                <p id="break-one" class="d-inline-flex"></p>
+            </div>
+            <div class="d-inline-block">
+                <p class="d-inline-flex font-weight-bold">End Time:</p>
+                <p id="break-one-end" class="d-inline-flex"></p>
+            </div>
+        </div>
 
+    <!-- session two  -->
+    <div class="pt-4">
+            <h2>Second Session</h2>
+            <div class="d-inline-blcok">
+                <p class="d-inline-flex font-weight-bold">Time till session end:</p>
+                <p id="session-two" class="d-inline-flex"></p>
+            </div>
+            <div class="d-inline-block">
+                <p class="d-inline-flex font-weight-bold">End Time:</p>
+                <p id="session-two-end" class="d-inline-flex"></p>
+            </div>
+        </div>
+
+        <!-- session three  -->
+        <div class="pt-4">
+                <h2>Third Session</h2>
+                <div class="d-inline-blcok">
+                    <p class="d-inline-flex font-weight-bold">Time till session end:</p>
+                    <p id="session-three" class="d-inline-flex"></p>
+                </div>
+                <div class="d-inline-block">
+                    <p class="d-inline-flex font-weight-bold">End Time:</p>
+                    <p id="session-three-end" class="d-inline-flex"></p>
+                </div>
+            </div>
+        
+        <!-- break two  -->
+        <!-- <div class="pt-4">
+                <h2>Break Two</h2>
+                <div class="d-inline-blcok">
+                    <p class="d-inline-flex font-weight-bold">Time till break end:</p>
+                    <p id="flex" class="d-inline-flex"></p>
+                </div>
+                <div class="d-inline-block">
+                    <p class="d-inline-flex font-weight-bold">End Time:</p>
+                    <p id="flex-end" class="d-inline-flex"></p>
+                </div>
+            </div> -->
+
+            <!-- session four  -->
+            <div class="pt-4">
+                    <h2>Fourth Session</h2>
+                    <div class="d-inline-blcok">
+                        <p class="d-inline-flex font-weight-bold">Time till session end:</p>
+                        <p id="session-four" class="d-inline-flex"></p>
+                    </div>
+                    <div class="d-inline-block">
+                        <p class="d-inline-flex font-weight-bold">End Time:</p>
+                        <p id="session-four-end" class="d-inline-flex"></p>
+                    </div>
+                </div>
+            
+            <!-- session five  -->
+            <div class="pt-4">
+                    <h2>Fifth Session</h2>
+                    <div class="d-inline-blcok">
+                        <p class="d-inline-flex font-weight-bold">Time till session end:</p>
+                        <p id="session-five" class="d-inline-flex"></p>
+                    </div>
+                    <div class="d-inline-block">
+                        <p class="d-inline-flex font-weight-bold">End Time:</p>
+                        <p id="session-five-end" class="d-inline-flex"></p>
+                    </div>
+                </div>
+            
+            <!-- session six  -->
+            <div class="pt-4">
+                    <h2>Sixth Session</h2>
+                    <div class="d-inline-blcok">
+                        <p class="d-inline-flex font-weight-bold">Time till session end:</p>
+                        <p id="session-six" class="d-inline-flex"></p>
+                    </div>
+                    <div class="d-inline-block">
+                        <p class="d-inline-flex font-weight-bold">End Time:</p>
+                        <p id="session-six-end" class="d-inline-flex"></p>
+                    </div>
+                </div>
+    
+    <!-- import js file  -->
     <script src="main.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
