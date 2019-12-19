@@ -1,9 +1,29 @@
 
 function myTimer() {
     // user input variables
+    const startTime = timeToMilii(document.getElementById("session-start-time").value).getTime();
     const sessionDuration = Number(document.getElementById("session-duration").value);
     const breakOneDuration = Number(document.getElementById("break-one-duration").value);
     const flexDuration = Number(document.getElementById("flex-duration").value);
+    const person1 = document.getElementById("p01").value;
+    const person2 = document.getElementById("p02").value;
+    const person3 = document.getElementById("p03").value;
+    const person4 = document.getElementById("p04").value;
+    const person5 = document.getElementById("p05").value;
+    const person6 = document.getElementById("p06").value;
+    const person7 = document.getElementById("p07").value;
+
+    const participantArray = [person1, person2, person3, person4, person5, person6, person7]
+    const participants = {
+       ppt01: person1,
+       ppt02: person2,
+       ppt03: person3,
+       ppt04: person4,
+       ppt05: person5,
+       ppt06: person6,
+       ppt07: person7,
+    };
+    const pods = ["Pod 1", "Pod 3", "Pod 4", "Pod 5", "Pod 6", "Pod 7", "Pod 8"]
 
     // convert the user input from minutes to milliseconds
     let sessionDurationMilli = minToMilli(sessionDuration);
@@ -12,21 +32,60 @@ function myTimer() {
 
 
     // add milliseconds to current time to get end time
-    let endSessionOne = currentTime() + sessionDurationMilli + flexDurationMilli;
-    let endBreakOne = endSessionOne + breakOneDurationMilli;
-    let endSessionTwo = endBreakOne + sessionDurationMilli + flexDurationMilli;
-    let endSessionThree = endSessionTwo + sessionDurationMilli + flexDurationMilli;
-    let endSessionFour = endSessionThree + sessionDurationMilli + flexDurationMilli;
-    let endSessionFive = endSessionFour + sessionDurationMilli + flexDurationMilli;
-    let endSessionSix = endSessionFive + sessionDurationMilli + flexDurationMilli;
+    let startSessionOne = startTime;
+    let knockTimeOne = (startTime + sessionDurationMilli) - 300000;
+    let endSessionOne = startTime + sessionDurationMilli;
+    let endFlexOne = endSessionOne + flexDurationMilli;
 
-    theTimer(endSessionOne, "session-one", "session-one-end");
-    theTimer(endBreakOne, "break-one", "break-one-end");
-    theTimer(endSessionTwo, "session-two", "session-two-end");
-    theTimer(endSessionThree, "session-three", "session-three-end");
-    theTimer(endSessionFour, "session-four", "session-four-end");
-    theTimer(endSessionFive, "session-five", "session-five-end");
-    theTimer(endSessionSix, "session-six", "session-six-end");
+    let breakStart = endSessionOne;
+    let endBreakOne = breakStart + breakOneDurationMilli;
+
+    let startSessionTwo = endBreakOne;
+    let knockTimeTwo = endBreakOne + sessionDurationMilli - 300000;
+    let endSessionTwo = endBreakOne + sessionDurationMilli;
+    let endFlexTwo = endSessionTwo + flexDurationMilli;
+
+    let startSessionThree = endFlexTwo;
+    let knockTimeThree = endFlexTwo + sessionDurationMilli - 300000;
+    let endSessionThree = endFlexTwo + sessionDurationMilli;
+    let endFlexThree = endSessionThree + flexDurationMilli;
+
+    let startSessionFour = endFlexThree;
+    let knockTimeFour = endFlexThree + sessionDurationMilli - 300000;
+    let endSessionFour = endFlexThree + sessionDurationMilli;
+    let endFlexFour = endSessionFour + flexDurationMilli;
+
+    let startSessionFive = endFlexFour;
+    let knockTimeFive = endFlexFour + sessionDurationMilli - 300000;
+    let endSessionFive = endFlexFour + sessionDurationMilli;
+    let endFlexFive = endSessionFive + flexDurationMilli;
+
+    let startSessionSix = endFlexFive;
+    let knockTimeSix = endFlexFive + sessionDurationMilli - 300000;
+    let endSessionSix = endFlexFive + sessionDurationMilli;
+    let endFlexSix = endSessionSix + flexDurationMilli;
+
+
+    displayEndTimes(startSessionOne, knockTimeOne, endSessionOne, endFlexOne, "session-one-start", "session-one-knock", "session-one-end", "session-one-flex-end");
+    displayEndTimes(breakStart, breakStart, endBreakOne, endBreakOne, "break-one-start", "break-one-start", "break-one-end", "flex",);
+    displayEndTimes(startSessionTwo, knockTimeTwo, endSessionTwo, endFlexTwo, "session-two-start", "session-two-knock", "session-two-end", "session-two-flex-end");
+    displayEndTimes(startSessionThree, knockTimeThree, endSessionThree, endFlexThree, "session-three-start", "session-three-knock", "session-three-end", "session-three-flex-end");
+    displayEndTimes(startSessionFour, knockTimeFour, endSessionFour, endFlexFour, "session-four-start", "session-four-knock", "session-four-end", "session-four-flex-end");
+    displayEndTimes(startSessionFive, knockTimeFive, endSessionFive, endFlexFive, "session-five-start", "session-five-knock", "session-five-end", "session-five-flex-end");
+    displayEndTimes(startSessionSix, knockTimeSix, endSessionSix, endFlexSix, "session-six-start", "session-six-knock", "session-six-end", "session-six-flex-end");
+
+    participantLocation(participantArray, pods, "session01");
+    participantLocation(participantArray, pods, "session02");
+    participantLocation(participantArray, pods, "session03");
+    participantLocation(participantArray, pods, "session04");
+    participantLocation(participantArray, pods, "session05");
+    participantLocation(participantArray, pods, "session06");
+    // participantLocation(participantArray, pods);
+    
+    
+   
+  
+
 }
 
 //FUNCTIONS
@@ -36,15 +95,22 @@ function currentTime() {
     return now;
 }
 
+// convert user input from time hh:mm:AM/PM and convert to milliseconds
+function timeToMilii(time) {
+    let date = new Date();
+    date.setHours(Number(time.split(':')[0]));
+    date.setMinutes(Number(time.split(':')[1]));
+    return date;
+}
+
 // convert user input (minutes) to milliseconds
 function minToMilli(minutes) {
     return minutes * 60000;
 }
 
-// convert millisecons to local time string
+// convert milliseconds to local time string
 function milliToLocalTime(milliseconds) {
     let endDate = new Date(milliseconds);
-
     return endDateString = new Date(endDate).toLocaleTimeString();
 }
 
@@ -64,6 +130,7 @@ function milliToTime(distance) {
 
 }
 
+// this function will take the end time in milliseconds, convert it to time as well as coutdown timer, and place within the html ID
 function theTimer(endTime, count, endTimeId) {
     let x = setInterval(function () {
     let remainingSessionTime = getDistance(endTime, currentTime());
@@ -80,6 +147,46 @@ function theTimer(endTime, count, endTimeId) {
     }, 1000);
 }
 
+// this function takes in 8 arguments to find element IDs on the pge and set the HTML to the correct time
+function displayEndTimes(start, knock, endSession, endFlex, startId, knockId, endId, flexId) {
+    if (knockId === "break-one-start") {
+        document.getElementById(knockId).innerHTML = milliToLocalTime(knock);
+        document.getElementById(endId).innerHTML = milliToLocalTime(endSession);
+    } else {
+        document.getElementById(startId).innerHTML = milliToLocalTime(start);
+        document.getElementById(knockId).innerHTML = milliToLocalTime(knock);
+        document.getElementById(endId).innerHTML = milliToLocalTime(endSession);
+        document.getElementById(flexId).innerHTML = milliToLocalTime(endFlex);
+    };
+    
+}
+
+// this function takes two arrays, participants and pods, determines how many pods are needed based on length of ppts array and allocates participants to pods appropriately
+function participantLocation(pptsArr, pods, session) {
+    
+    pptsArr.forEach((a, i) => document.getElementById(session).innerHTML += 
+    `<div class="">
+    <p class="d-inline-flex font-weight-bold">${pods[i]}: </p>
+    <p class="d-inline-flex">${a}</p>
+    </div>`);
+    pptsArr.forEach((a, i) => console.log(`${pods[i]}: ${a}`));
+    pptsArr.unshift(pptsArr.pop());
+    console.log(pods);
+
+    // for (i = 0; i < pptsArr.length; i++) {
+    //     for (j = 0; j < pods.length; j++) {
+    //         console.log(`${pptsArr[i]} is in ${pods[j]}`)
+    //     };
+    // };
+   
+
+};
+
+
+
+
+
+
 function hideTimer(time, location) {
     let remainingSessionTime = getDistance(time, currentTime());
     
@@ -87,11 +194,3 @@ function hideTimer(time, location) {
         document.getElementById(location).style.display = "none";
     }
 }
-
-// let currentTimer = setInterval(currentTime, 1000);
-
-// function currentTime() {
-//     let currentDate = new Date().toLocaleTimeString();
-//     document.getElementById("timer").innerHTML = currentDate;
-
-// }
