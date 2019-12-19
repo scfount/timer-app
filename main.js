@@ -5,15 +5,24 @@ function myTimer() {
     const sessionDuration = Number(document.getElementById("session-duration").value);
     const breakOneDuration = Number(document.getElementById("break-one-duration").value);
     const flexDuration = Number(document.getElementById("flex-duration").value);
-    const p01 = document.getElementById("p01").value;
-    const p02 = document.getElementById("p02").value;
-    const p03 = document.getElementById("p03").value;
-    const p04 = document.getElementById("p04").value;
-    const p05 = document.getElementById("p05").value;
-    const p06 = document.getElementById("p06").value;
-    const p07 = document.getElementById("p07").value;
-    const p08 = document.getElementById("p08").value;
-    const participants = [p01, p02, p03, p04, p05, p06, p07, p08]
+    const person1 = document.getElementById("p01").value;
+    const person2 = document.getElementById("p02").value;
+    const person3 = document.getElementById("p03").value;
+    const person4 = document.getElementById("p04").value;
+    const person5 = document.getElementById("p05").value;
+    const person6 = document.getElementById("p06").value;
+    const person7 = document.getElementById("p07").value;
+
+    const participantArray = [person1, person2, person3, person4, person5, person6, person7]
+    const participants = {
+       ppt01: person1,
+       ppt02: person2,
+       ppt03: person3,
+       ppt04: person4,
+       ppt05: person5,
+       ppt06: person6,
+       ppt07: person7,
+    };
     const pods = ["Pod 1", "Pod 3", "Pod 4", "Pod 5", "Pod 6", "Pod 7", "Pod 8"]
 
     // convert the user input from minutes to milliseconds
@@ -65,8 +74,16 @@ function myTimer() {
     displayEndTimes(startSessionFive, knockTimeFive, endSessionFive, endFlexFive, "session-five-start", "session-five-knock", "session-five-end", "session-five-flex-end");
     displayEndTimes(startSessionSix, knockTimeSix, endSessionSix, endFlexSix, "session-six-start", "session-six-knock", "session-six-end", "session-six-flex-end");
 
-    console.log(milliToLocalTime(startTime));
-    console.log(participants);
+    participantLocation(participantArray, pods, "session01");
+    participantLocation(participantArray, pods, "session02");
+    participantLocation(participantArray, pods, "session03");
+    participantLocation(participantArray, pods, "session04");
+    participantLocation(participantArray, pods, "session05");
+    participantLocation(participantArray, pods, "session06");
+    // participantLocation(participantArray, pods);
+    
+    
+   
   
 
 }
@@ -136,13 +153,39 @@ function displayEndTimes(start, knock, endSession, endFlex, startId, knockId, en
         document.getElementById(knockId).innerHTML = milliToLocalTime(knock);
         document.getElementById(endId).innerHTML = milliToLocalTime(endSession);
     } else {
-        document.getElementById(startId).innerHTML = milliToLocalTime(start).replace(/(:\d{2}| [AP]M)$/, "");
+        document.getElementById(startId).innerHTML = milliToLocalTime(start);
         document.getElementById(knockId).innerHTML = milliToLocalTime(knock);
         document.getElementById(endId).innerHTML = milliToLocalTime(endSession);
         document.getElementById(flexId).innerHTML = milliToLocalTime(endFlex);
     };
     
 }
+
+// this function takes two arrays, participants and pods, determines how many pods are needed based on length of ppts array and allocates participants to pods appropriately
+function participantLocation(pptsArr, pods, session) {
+    
+    pptsArr.forEach((a, i) => document.getElementById(session).innerHTML += 
+    `<div class="">
+    <p class="d-inline-flex font-weight-bold">${pods[i]}: </p>
+    <p class="d-inline-flex">${a}</p>
+    </div>`);
+    pptsArr.forEach((a, i) => console.log(`${pods[i]}: ${a}`));
+    pptsArr.unshift(pptsArr.pop());
+    console.log(pods);
+
+    // for (i = 0; i < pptsArr.length; i++) {
+    //     for (j = 0; j < pods.length; j++) {
+    //         console.log(`${pptsArr[i]} is in ${pods[j]}`)
+    //     };
+    // };
+   
+
+};
+
+
+
+
+
 
 function hideTimer(time, location) {
     let remainingSessionTime = getDistance(time, currentTime());
