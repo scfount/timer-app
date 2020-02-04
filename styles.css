@@ -1,0 +1,41 @@
+.participant-pod-information {
+    display: grid;
+    grid-template-areas: "left right"
+                          "pods pods";
+    column-gap: 2em;
+
+}
+
+.participant-names {
+    grid-area: left;
+}
+
+.session-information {
+    grid-area: right;
+}
+
+.pod-selection {
+    grid-area: pods;
+}
+
+.pod-buttons {
+    
+}
+
+
+@media only screen and (max-width: 991px) {
+    
+    .participant-pod-information {
+        grid-template-areas: "left"
+                             "right"
+                             "pods";
+    }
+
+    .session-information {
+        padding-top: 3em;
+    }
+
+    .pod-buttons {
+        flex-direction: column !important;
+    }
+}

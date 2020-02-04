@@ -5,25 +5,21 @@ function myTimer() {
     const sessionDuration = Number(document.getElementById("session-duration").value);
     const breakOneDuration = Number(document.getElementById("break-one-duration").value);
     const flexDuration = Number(document.getElementById("flex-duration").value);
-    const person1 = document.getElementById("p01").value;
-    const person2 = document.getElementById("p02").value;
-    const person3 = document.getElementById("p03").value;
-    const person4 = document.getElementById("p04").value;
-    const person5 = document.getElementById("p05").value;
-    const person6 = document.getElementById("p06").value;
-    const person7 = document.getElementById("p07").value;
+    
 
-    const participantArray = [person1, person2, person3, person4, person5, person6, person7]
-    const participants = {
-       ppt01: person1,
-       ppt02: person2,
-       ppt03: person3,
-       ppt04: person4,
-       ppt05: person5,
-       ppt06: person6,
-       ppt07: person7,
-    };
-    const pods = ["Pod 1", "Pod 3", "Pod 4", "Pod 5", "Pod 6", "Pod 7", "Pod 8"]
+   
+    // const participants = {
+    //    ppt01: person1,
+    //    ppt02: person2,
+    //    ppt03: person3,
+    //    ppt04: person4,
+    //    ppt05: person5,
+    //    ppt06: person6,
+    //    ppt07: person7,
+    // };
+
+    const pods = [];
+    const participants = [];
 
     // convert the user input from minutes to milliseconds
     let sessionDurationMilli = minToMilli(sessionDuration);
@@ -65,7 +61,8 @@ function myTimer() {
     let endSessionSix = endFlexFive + sessionDurationMilli;
     let endFlexSix = endSessionSix + flexDurationMilli;
 
-
+    getPods(pods);
+    getParticipants(participants);
     displayEndTimes(startSessionOne, knockTimeOne, endSessionOne, endFlexOne, "session-one-start", "session-one-knock", "session-one-end", "session-one-flex-end");
     displayEndTimes(breakStart, breakStart, endBreakOne, endBreakOne, "break-one-start", "break-one-start", "break-one-end", "flex",);
     displayEndTimes(startSessionTwo, knockTimeTwo, endSessionTwo, endFlexTwo, "session-two-start", "session-two-knock", "session-two-end", "session-two-flex-end");
@@ -74,13 +71,14 @@ function myTimer() {
     displayEndTimes(startSessionFive, knockTimeFive, endSessionFive, endFlexFive, "session-five-start", "session-five-knock", "session-five-end", "session-five-flex-end");
     displayEndTimes(startSessionSix, knockTimeSix, endSessionSix, endFlexSix, "session-six-start", "session-six-knock", "session-six-end", "session-six-flex-end");
 
-    participantLocation(participantArray, pods, "session01");
-    participantLocation(participantArray, pods, "session02");
-    participantLocation(participantArray, pods, "session03");
-    participantLocation(participantArray, pods, "session04");
-    participantLocation(participantArray, pods, "session05");
-    participantLocation(participantArray, pods, "session06");
-    // participantLocation(participantArray, pods);
+    participantLocation(participants, pods, "session01");
+    participantLocation(participants, pods, "session02");
+    participantLocation(participants, pods, "session03");
+    participantLocation(participants, pods, "session04");
+    participantLocation(participants, pods, "session05");
+    participantLocation(participants, pods, "session06");
+    
+    console.log(pods);
     
     
    
@@ -93,7 +91,7 @@ function myTimer() {
 function currentTime() {
     const now = new Date().getTime();
     return now;
-}
+}    
 
 // convert user input from time hh:mm:AM/PM and convert to milliseconds
 function timeToMilii(time) {
@@ -162,29 +160,41 @@ function displayEndTimes(start, knock, endSession, endFlex, startId, knockId, en
 }
 
 // this function takes two arrays, participants and pods, determines how many pods are needed based on length of ppts array and allocates participants to pods appropriately
-function participantLocation(pptsArr, pods, session) {
-    
+function participantLocation(pptsArr, pods, session) {    
     pptsArr.forEach((a, i) => document.getElementById(session).innerHTML += 
     `<div class="">
     <p class="d-inline-flex font-weight-bold">${pods[i]}: </p>
     <p class="d-inline-flex">${a}</p>
     </div>`);
-    pptsArr.forEach((a, i) => console.log(`${pods[i]}: ${a}`));
     pptsArr.unshift(pptsArr.pop());
-    console.log(pods);
-
-    // for (i = 0; i < pptsArr.length; i++) {
-    //     for (j = 0; j < pods.length; j++) {
-    //         console.log(`${pptsArr[i]} is in ${pods[j]}`)
-    //     };
-    // };
-   
-
 };
 
 
 
+//Get Pods in use
 
+function getPods(pods) {
+    let allPods = ["pod01", "pod03", "pod04", "pod05", "pod06", "pod07", "pod08"];
+    allPods.forEach(function(pod) {
+        if (document.getElementById(pod).checked === true) {
+            pods.push(document.getElementById(pod).value);
+        } else return;
+    });
+};
+
+
+//Get Participant Names
+
+function getParticipants(particpants) {
+
+    let allppts = ["p01", "p02", "p03", "p04", "p05", "p06", "p07"];
+
+    allppts.forEach(function(ppt) {
+        if (document.getElementById(ppt).value != "") {
+            particpants.push(document.getElementById(ppt).value);
+        } else return;
+    });
+}
 
 
 function hideTimer(time, location) {

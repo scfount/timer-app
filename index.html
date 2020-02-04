@@ -1,333 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- bootstrap CSS  -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
     <title>FF Timer</title>
-  </head>
-  <body class="container">
+</head>
+
+<body class="container">
     <div>
-      <h1 class="display-3 pb-5">Flash Feedback Event Timer</h1>
+        <h1 class="display-3 pb-5">Flash Feedback Event Timer</h1>
     </div>
 
-   <!-- Particpant information input to be used for rotations start -->
-  <section class="participant-names">
-    <h3>Particpant Names</h3>
-    <div class="form-group row">
-      <label class="col-sm-3 col-form-label" for="p01">Particpant 1</label>
-      <div class="col-sm-9">
-        <input id="p01" class="input-name form-control" type="text" />
-      </div>
-    </div>
+    <!-- Particpant information input to be used for rotations start grid container -->
+    <section class="participant-pod-information">
+        <section class="participant-names">
+            <h3 class="text-center pb-5">Particpant Names</h3>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p01">Particpant 1</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p01" class="input-name form-control" type="text" />
+                </div>
+            </div>
 
-    <div class="form-group row">
-      <label class="col-sm-3 col-form-label" for="p02">Particpant 2</label>
-      <div class="col-sm-9">
-        <input id="p02" class="input-name form-control" type="text" />
-      </div>
-    </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p02">Particpant 2</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p02" class="input-name form-control" type="text" />
+                </div>
+            </div>
 
-    <div class="form-group row">
-      <label class="col-sm-3 col-form-label" for="p03">Particpant 3</label>
-      <div class="col-sm-9">
-        <input id="p03" class="input-name form-control" type="text" />
-      </div>
-    </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p03">Particpant 3</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p03" class="input-name form-control" type="text" />
+                </div>
+            </div>
 
-    <div class="form-group row">
-      <label class="col-sm-3 col-form-label" for="p04">Particpant 4</label>
-      <div class="col-sm-9">
-        <input id="p04" class="input-name form-control" type="text" />
-      </div>
-    </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p04">Particpant 4</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p04" class="input-name form-control" type="text" />
+                </div>
+            </div>
 
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="p05">Particpant 5</label>
-        <div class="col-sm-9">
-          <input id="p05" class="input-name form-control" type="text" />
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p05">Particpant 5</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p05" class="input-name form-control" type="text" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p06">Particpant 6</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p06" class="input-name form-control" type="text" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="p07">Particpant 7</label>
+                <div class="col-sm-9 align-self-center">
+                    <input id="p07" class="input-name form-control" type="text" />
+                </div>
+            </div>
+        </section>
+        <!-- end participant info  -->
+
+        <!-- session information for time calculations  -->
+        <section class="session-information">
+            <h3 class="pb-5 text-center">Session Information</h3>
+            <div class="form-group row">
+                <label for="session-start-time" class="col-sm-3 col-form-label">Enter Session Start Time</label
+          >
+          <div class="col-sm-9 align-self-center">
+            <input
+              id="session-start-time"
+              class="input-time form-control"
+              type="time"
+            />
+          </div>
         </div>
-      </div>
-
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label" for="p06">Particpant 6</label>
-        <div class="col-sm-9">
-          <input id="p06" class="input-name form-control" type="text" />
-        </div>
-      </div>
 
         <div class="form-group row">
-          <label class="col-sm-3 col-form-label" for="p07">Particpant 7</label>
-          <div class="col-sm-9">
-            <input id="p07" class="input-name form-control" type="text" />
+          <label for="session-duration" class="col-sm-3 col-form-label"
+            >Enter Session Duration</label
+          >
+          <div class="col-sm-9 align-self-center">
+            <input
+              id="session-duration"
+              class="input-time form-control"
+              type="number"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="break-one-duration" class="col-sm-3 col-form-label"
+            >First Break Duration</label
+          >
+          <div class="col-sm-9 align-self-center">
+            <input
+              id="break-one-duration"
+              class="input-time form-control"
+              type="number"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="flex-duration" class="col-sm-3 col-form-label"
+            >Flex Duration</label
+          >
+          <div class="col-sm-9 align-self-center">
+            <input
+              id="flex-duration"
+              class="input-time form-control"
+              type="number"
+            />
           </div>
         </div>
       </section>
-        <!-- end participant info  -->
+      <!-- session info end  -->
 
+      <!-- start pod selection  -->
+      <section class="pod-selection">
+        <form>
+          <h3 class="pt-4 pb-3">Pods in Use</h3>
+          <div class="d-flex justify-content-between pod-buttons">
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="all"
+                name="all"
+              />
+              <label class="custom-control-label" for="all">Select All</label>
+            </div>
+            <div class="custom-control custom-checkbox pod-buttons">
+                <input type="checkbox" value="Pod 1" class="custom-control-input" id="pod01" name="pod01" />
+                <label class="custom-control-label" for="pod01">Pod 01</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Pod 3" class="custom-control-input" id="pod03" name="pod03" />
+                <label class="custom-control-label" for="pod03">Pod 03</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Pod 4" class="custom-control-input" id="pod04" name="pod04" />
+                <label class="custom-control-label" for="pod04">Pod 04</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Pod 5" class="custom-control-input" id="pod05" name="pod05" />
+                <label class="custom-control-label" for="pod05">Pod 05</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Pod 6" class="custom-control-input" id="pod06" name="pod06" />
+                <label class="custom-control-label" for="pod06">Pod 06</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Pod 7" class="custom-control-input" id="pod07" name="pod07" />
+                <label class="custom-control-label" for="pod07">Pod 07</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Pod 8" class="custom-control-input" id="pod08" name="pod08" />
+                <label class="custom-control-label" for="pod08">Pod 08</label>
+            </div>
+            </div>
+            </form>
+        </section>
+    </section>
+    <!-- end grid container  -->
 
-        <!-- session information for time calculations  -->
-        <h3 class="pt-5">Session Information</h3>
-        <div class="form-group row">
-          <label for="session-start-time" class="col-sm-3 col-form-label">Enter Session Start Time</label>
-          <div class="col-sm-9">
-            <input id="session-start-time" class="input-time form-control" type="time" />
-          </div>  
-      </div>
-
-      <div class="form-group row">
-        <label for="session-duration" class="col-sm-3 col-form-label">Enter Session Duration</label>
-        <div class="col-sm-9">
-          <input id="session-duration" class="input-time form-control" type="number" />
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="break-one-duration" class="col-sm-3 col-form-label">First Break Duration</label>
-        <div class="col-sm-9">
-          <input id="break-one-duration" class="input-time form-control" type="number" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="flex-duration" class="col-sm-3 col-form-label">Flex Duration</label>
-        <div class="col-sm-9">
-          <input id="flex-duration" class="input-time form-control" type="number" />
-        </div>
-      </div>
-      <!-- start timer button and clear timer button  -->
-      <input type="submit" value="Start Timer" onclick="myTimer()" class="btn btn-primary mb-2"/>
-      <button value="Refresh Page" onClick="window.location.reload();" class="btn btn-danger mb-2">Clear Timer</button>
+    <!-- start timer button and clear timer button  -->
+    <div class="mt-5">
+        <input type="submit" value="Start Timer" onclick="myTimer()" class="btn btn-primary mb-2" />
+        <button value="Refresh Page" onClick="window.location.reload();" class="btn btn-danger mb-2">
+        Clear Timer
+      </button>
     </div>
-   
+
     <!-- time information blocks start  -->
     <!-- session one  -->
     <div class="container-fluid">
-      <div class="row">
-        <div id="first-session" class="pt-4 border rounded my-3 col-sm-12">
-          <h2>First Session</h2>
-          <div class="row">
-            <div class="col-5 d-flex flex-column justify-content-between">
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Start Time:</p>
-                <p id="session-one-start" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Knock Time:</p>
-                <p id="session-one-knock" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Session End:</p>
-                <p id="session-one-end" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Flex End:</p>
-                <p id="session-one-flex-end" class="d-inline-flex"></p>
-              </div>
+        <div class="row">
+            <div id="first-session" class="pt-4 border rounded my-3 col-sm-12">
+                <h2>First Session</h2>
+                <div class="row">
+                    <div class="col-5 d-flex flex-column justify-content-between">
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Start Time:</p>
+                            <p id="session-one-start" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Knock Time:</p>
+                            <p id="session-one-knock" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Session End:</p>
+                            <p id="session-one-end" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Flex End:</p>
+                            <p id="session-one-flex-end" class="d-inline-flex"></p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <span id="session01"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-7">
-              <span id="session01"></span>
-            </div> 
-          </div>
         </div>
-      </div>
 
         <!-- break one  -->
         <div class="row">
-          <div class="pt-4 border rounded my-3 col-sm-12">
-            <h2>Break/Flex</h2>
-            <div class="">
-              <p class="d-inline-flex font-weight-bold">Break Start:</p>
-              <p id="break-one-start" class="d-inline-flex"></p>
+            <div class="pt-4 border rounded my-3 col-sm-12">
+                <h2>Break/Flex</h2>
+                <div class="">
+                    <p class="d-inline-flex font-weight-bold">Break Start:</p>
+                    <p id="break-one-start" class="d-inline-flex"></p>
+                </div>
+                <div class="">
+                    <p class="d-inline-flex font-weight-bold">Break End:</p>
+                    <p id="break-one-end" class="d-inline-flex"></p>
+                </div>
             </div>
-            <div class="">
-              <p class="d-inline-flex font-weight-bold">Break End:</p>
-              <p id="break-one-end" class="d-inline-flex"></p>
-            </div>
-          </div>
         </div>
-            
-        
 
-      <!-- session two  -->
-      <div class="row">
-        <div class="pt-4 border rounded my-3 col-sm-12">
-          <h2>Second Session</h2>
-          <div class="row">
-            <div class="col-5 d-flex flex-column justify-content-between">
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Start Time:</p>
-                <p id="session-two-start" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Knock Time:</p>
-                <p id="session-two-knock" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Session End:</p>
-                <p id="session-two-end" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Flex End:</p>
-                <p id="session-two-flex-end" class="d-inline-flex"></p>
-              </div>
+        <!-- session two  -->
+        <div class="row">
+            <div class="pt-4 border rounded my-3 col-sm-12">
+                <h2>Second Session</h2>
+                <div class="row">
+                    <div class="col-5 d-flex flex-column justify-content-between">
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Start Time:</p>
+                            <p id="session-two-start" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Knock Time:</p>
+                            <p id="session-two-knock" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Session End:</p>
+                            <p id="session-two-end" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Flex End:</p>
+                            <p id="session-two-flex-end" class="d-inline-flex"></p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <span id="session02"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-7">
-              <span id="session02"></span>
-            </div>
-          </div>
         </div>
-      </div>
-          
-      <!-- session three  -->
-      <div class="row">
-        <div class="pt-4 border rounded my-3 col-sm-12">
-          <h2>Third Session</h2>
-          <div class="row">
-            <div class="col-5 d-flex flex-column justify-content-between">
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Start Time:</p>
-                <p id="session-three-start" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Knock Time:</p>
-                <p id="session-three-knock" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Session End:</p>
-                <p id="session-three-end" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Flex End:</p>
-                <p id="session-three-flex-end" class="d-inline-flex"></p>
-              </div>
-            </div>
-            <div class="col-7">
-              <span id="session03"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-          
 
-      <!-- session four  -->
-      <div class="row">
-        <div class="pt-4 border rounded my-3 col-sm-12">
-          <h2>Fourth Session</h2>
-          <div class="row">
-            <div class="col-5 d-flex flex-column justify-content-between">
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Start Time:</p>
-                <p id="session-four-start" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Knock Time:</p>
-                <p id="session-four-knock" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Session End:</p>
-                <p id="session-four-end" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Flex End:</p>
-                <p id="session-four-flex-end" class="d-inline-flex"></p>
-              </div>
+        <!-- session three  -->
+        <div class="row">
+            <div class="pt-4 border rounded my-3 col-sm-12">
+                <h2>Third Session</h2>
+                <div class="row">
+                    <div class="col-5 d-flex flex-column justify-content-between">
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Start Time:</p>
+                            <p id="session-three-start" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Knock Time:</p>
+                            <p id="session-three-knock" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Session End:</p>
+                            <p id="session-three-end" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Flex End:</p>
+                            <p id="session-three-flex-end" class="d-inline-flex"></p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <span id="session03"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-7">
-              <span id="session04"></span>
-            </div>
-          </div>
         </div>
-      </div>
-          
 
-      <!-- session five  -->
-      <div class="row">
-        <div class="pt-4 border rounded my-3 col-sm-12">
-          <h2>Fifth Session</h2>
-          <div class="row">
-            <div class="col-5 d-flex flex-column justify-content-between">
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Start Time:</p>
-                <p id="session-five-start" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Knock Time:</p>
-                <p id="session-five-knock" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Session End:</p>
-                <p id="session-five-end" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Flex End:</p>
-                <p id="session-five-flex-end" class="d-inline-flex"></p>
-              </div>
+        <!-- session four  -->
+        <div class="row">
+            <div class="pt-4 border rounded my-3 col-sm-12">
+                <h2>Fourth Session</h2>
+                <div class="row">
+                    <div class="col-5 d-flex flex-column justify-content-between">
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Start Time:</p>
+                            <p id="session-four-start" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Knock Time:</p>
+                            <p id="session-four-knock" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Session End:</p>
+                            <p id="session-four-end" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Flex End:</p>
+                            <p id="session-four-flex-end" class="d-inline-flex"></p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <span id="session04"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-7">
-              <span id="session05"></span>
-            </div>
-          </div>
         </div>
-      </div>
-          
 
-      <!-- session six  -->
-      <div class="row">
-        <div class="pt-4 border rounded my-3 col-sm-12">
-          <h2>Sixth Session</h2>
-          <div class="row">
-            <div class="col-5 d-flex flex-column justify-content-between">
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Start Time:</p>
-                <p id="session-six-start" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Knock Time:</p>
-                <p id="session-six-knock" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Session End:</p>
-                <p id="session-six-end" class="d-inline-flex"></p>
-              </div>
-              <div class="">
-                <p class="d-inline-flex font-weight-bold">Flex End:</p>
-                <p id="session-six-flex-end" class="d-inline-flex"></p>
-              </div>
+        <!-- session five  -->
+        <div class="row">
+            <div class="pt-4 border rounded my-3 col-sm-12">
+                <h2>Fifth Session</h2>
+                <div class="row">
+                    <div class="col-5 d-flex flex-column justify-content-between">
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Start Time:</p>
+                            <p id="session-five-start" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Knock Time:</p>
+                            <p id="session-five-knock" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Session End:</p>
+                            <p id="session-five-end" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Flex End:</p>
+                            <p id="session-five-flex-end" class="d-inline-flex"></p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <span id="session05"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-7">
-              <span id="session06"></span>
-            </div>
-          </div>
         </div>
-      </div>
+
+        <!-- session six  -->
+        <div class="row">
+            <div class="pt-4 border rounded my-3 col-sm-12">
+                <h2>Sixth Session</h2>
+                <div class="row">
+                    <div class="col-5 d-flex flex-column justify-content-between">
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Start Time:</p>
+                            <p id="session-six-start" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Knock Time:</p>
+                            <p id="session-six-knock" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Session End:</p>
+                            <p id="session-six-end" class="d-inline-flex"></p>
+                        </div>
+                        <div class="">
+                            <p class="d-inline-flex font-weight-bold">Flex End:</p>
+                            <p id="session-six-flex-end" class="d-inline-flex"></p>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <span id="session06"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- time information blocks end  -->
 
     <!-- import js file  -->
     <script src="main.js"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- import jQuery  -->
+    <script src="jquery.js"></script>
+</body>
+
 </html>
