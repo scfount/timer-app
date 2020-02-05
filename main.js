@@ -1,23 +1,37 @@
 
-function myTimer() {
+//Quick timer function
+function defaultTimer() {
+    myTimer(Date.now(), 20, 10, 5)
+}
+
+
+function myTimer(start, session, breakOne, flex) {
     // user input variables
-    const startTime = timeToMilii(document.getElementById("session-start-time").value).getTime();
-    const sessionDuration = Number(document.getElementById("session-duration").value);
-    const breakOneDuration = Number(document.getElementById("break-one-duration").value);
-    const flexDuration = Number(document.getElementById("flex-duration").value);
+    let startTime;
+
+        if (document.getElementById("session-start-time").value != 0) {
+            startTime = timeToMilii(document.getElementById("session-start-time").value).getTime();
+        } else startTime = start;
+
+    let sessionDuration;
+
+        if (document.getElementById("session-duration").value != 0) {
+            sessionDuration = Number(document.getElementById("session-duration").value);
+        } else sessionDuration = session;
+
+    let breakOneDuration; 
     
+        if (document.getElementById("break-one-duration").value != 0) {
+            breakOneDuration = Number(document.getElementById("break-one-duration").value);
+        } else breakOneDuration = breakOne;
 
-   
-    // const participants = {
-    //    ppt01: person1,
-    //    ppt02: person2,
-    //    ppt03: person3,
-    //    ppt04: person4,
-    //    ppt05: person5,
-    //    ppt06: person6,
-    //    ppt07: person7,
-    // };
+    let flexDuration;
 
+        if (document.getElementById("flex-duration").value != 0) {
+            flexDuration = Number(document.getElementById("flex-duration").value);
+        } else flexDuration = flex;
+        
+    // Arrays of pods in use and participant names
     const pods = [];
     const participants = [];
 
@@ -78,12 +92,6 @@ function myTimer() {
     participantLocation(participants, pods, "session05");
     participantLocation(participants, pods, "session06");
     
-    console.log(pods);
-    
-    
-   
-  
-
 }
 
 //FUNCTIONS
@@ -204,3 +212,5 @@ function hideTimer(time, location) {
         document.getElementById(location).style.display = "none";
     }
 }
+
+
